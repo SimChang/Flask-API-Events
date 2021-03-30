@@ -112,6 +112,28 @@ def get_events(filters):
     return json.loads(json.JSONEncoder().encode(query))
 
 
+def remove_events(name_list):
+    """ Removes events with corresponding names
 
+        Args:
+            name_list (list of str): Names to remove
 
+        Returns:
+            dict: The response object to send back
+        """
+
+    try:
+        Event.objects(name__in=name_list).delete()
+        response_object = {
+            'status': 'success',
+            'message': 'Successfully deleted.'
+        }
+        return response_object, 200
+
+    except:
+        response_object = {
+            'status': 'fail',
+            'message': 'Error, could not delete the events.'
+        }
+        return response_object, 500
 
