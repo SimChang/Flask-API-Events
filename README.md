@@ -2,6 +2,8 @@
 
 Version: 1.0.0
 
+Run the flask server: Go to Flask API directory and run the following command: python manage.py run
+
 ## List of endpoints:
 
 ### '/add_event' [POST]
